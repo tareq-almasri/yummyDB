@@ -26,7 +26,7 @@ mongoose.connect(
   }
 );
 
-let port = 5000;
+let port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log("start listening on port 5000");
 });
