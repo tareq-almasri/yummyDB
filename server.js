@@ -191,3 +191,12 @@ app.get("/get-fav", authenticateToken, (req, res) => {
 app.get('/check-token',authenticateToken, (req,res)=>{
    res.json('token is valid');
 })
+
+if (process.env.NODE_ENV === "production") {
+  // Set static folder
+  app.use(express.static("r/build"));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "r", "build", "index.html"));
+  });
+}
