@@ -13,7 +13,7 @@ export default function Profile(props) {
   });
   const [token, setToken] = useContext(TokenContext);
   useEffect(() => {
-    fetch("http://localhost:5000/profile", {
+    fetch("/profile", {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
