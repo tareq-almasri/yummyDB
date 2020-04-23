@@ -8,16 +8,12 @@ import {
 import bowls from "../assets/bowls.jpg";
 import chicken from "../assets/chicken.jpg";
 import sliced from "../assets/vegetable.jpg";
-import text1 from "../assets/bowls-text.jpg";
-import text2 from "../assets/chicken-text.jpg";
-import text3 from "../assets/vegetable-text.jpg";
 import "../App.css";
 
 const items = [
   {
     id: 1,
     src: bowls,
-    src2: text1,
     color: "#F94F72",
     size: "30px",
     caption: "MORE THAN 300K RECIPES,",
@@ -25,7 +21,6 @@ const items = [
   {
     id: 2,
     src: chicken,
-    src2: text2,
     color: "#b526f2",
     size: "28px",
     caption: "24 INTERNATIONAL CUISINES,",
@@ -33,7 +28,6 @@ const items = [
   {
     id: 3,
     src: sliced,
-    src2: text3,
     color: "#f8b652",
     size: "26px",
     caption: "A VARIETY OF DIETS & A LOT MORE!!!",
@@ -96,14 +90,7 @@ const SlideShow = () => {
             zIndex: "3",
           }}
         >
-          {/* <img
-            style={{
-              width: "320px",
-              height: "auto",
-            }}
-            src={item.src2}
-            alt=""
-          /> */}
+          
           <div
             style={{
               fontWeight: "900",
