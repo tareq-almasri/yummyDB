@@ -11,7 +11,7 @@ export default function FavFood() {
   const [favArray, setFavArray] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/get-fav/`, {
+    fetch(`/get-fav/`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
