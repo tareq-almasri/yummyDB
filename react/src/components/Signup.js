@@ -13,21 +13,24 @@ export default function Signup () {
   const handleSubmit=(e)=>{
     e.preventDefault();
     if(username.length>0 && password.length>5){
-    fetch("/sign-up", {
+    fetch("http://localhost:5000/sign-up", {
       method: "POST",
       body: JSON.stringify({
         username: username,
         email: email,
-        password: password
+        password: password,
       }),
-      headers: { "Content-Type": "application/json" }
+      headers: { "Content-Type": "application/json" },
     })
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         data.error
           ? setErrMsg(data.error)
-          : history.push({pathname: '/create-account', state: {email: email }})
+          : history.push({
+              pathname: "/create-account",
+              state: { email: email },
             });
+      });
       }
     
   }

@@ -50,33 +50,31 @@ export default function EditAccount(props) {
 
   useEffect(() => {
     console.log(token);
-    fetch("/profile", {
+    fetch("http://localhost:5000/profile", {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     })
       .then((res) => res.json())
-      .then((data) =>
-        {
-          setHeight(data.height);
-          setWeight(data.weight);
-          setAge(data.age);
-          setMale(data.male);
-          setFemale(data.female);
-          setDaysOfWorkouts(data.daysOfWorkout);
-          setDurationOfWorkout(data.durationOfWorkout);
-          setEcto(data.ecto);
-          setMeso(data.meso);
-          setEndo(data.endo);
-          setLose(data.lose);
-          setGain(data.gain);
-          setMaintain(data.maintain);
-          setLowCarbs(data.lowCarbs);
-          setModerateCarbs(data.moderateCarbs);
-          setHighCarbs(data.highCarbs);
-        }
-      );
+      .then((data) => {
+        setHeight(data.height);
+        setWeight(data.weight);
+        setAge(data.age);
+        setMale(data.male);
+        setFemale(data.female);
+        setDaysOfWorkouts(data.daysOfWorkout);
+        setDurationOfWorkout(data.durationOfWorkout);
+        setEcto(data.ecto);
+        setMeso(data.meso);
+        setEndo(data.endo);
+        setLose(data.lose);
+        setGain(data.gain);
+        setMaintain(data.maintain);
+        setLowCarbs(data.lowCarbs);
+        setModerateCarbs(data.moderateCarbs);
+        setHighCarbs(data.highCarbs);
+      });
   }, [token]);
 
   const handleSubmit = (e) => {
@@ -114,7 +112,7 @@ export default function EditAccount(props) {
 
     if (TDEE) {
       console.log(TDEE, goalCal, protein, carbs, fat, sugar);
-      fetch("/edit-account", {
+      fetch("http://localhost:5000/edit-account", {
         method: "POST",
         body: JSON.stringify({
           tdee: TDEE,

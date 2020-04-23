@@ -6,11 +6,11 @@ const jwt = require("jsonwebtoken");
 const User = require("./Models/user.model");
 require("dotenv").config();
 
-const secret = 'shhhhh';
+const secret = process.env.SECRET;
 
 // CONNECT TO MONGODB
 mongoose.connect(
-  "mongodb+srv://alef:hello123@cluster0-2yq8x.mongodb.net/Onigiri?retryWrites=true&w=majority",
+  process.env.MONGO_DB,
   {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -197,7 +197,7 @@ if (process.env.NODE_ENV === "production") {
   // Set static folder
   app.use(express.static("react/build"));
 
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "react", "build", "index.html"));
-  });
+  // app.get("*", (req, res) => {
+  //   res.sendFile(path.resolve(__dirname, "react", "build", "index.html"));
+  // });
 }

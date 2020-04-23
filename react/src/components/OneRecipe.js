@@ -74,7 +74,7 @@ const OneRecipe = ({ match }) => {
       });
 
     const checkFav = (id) => {
-      fetch(`/check-fav/${id}`, {
+      fetch(`http://localhost:5000/check-fav/${id}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -87,7 +87,7 @@ const OneRecipe = ({ match }) => {
 
   const handleAddToFav = () => {
     if (isFav) {
-      fetch(`/remove-fav/${recID}`, {
+      fetch(`http://localhost:5000/remove-fav/${recID}`, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -100,7 +100,7 @@ const OneRecipe = ({ match }) => {
           console.log(data);
         });
     } else {
-      fetch("/add-fav", {
+      fetch("http://localhost:5000/add-fav", {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
