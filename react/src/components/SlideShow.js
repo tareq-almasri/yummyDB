@@ -18,18 +18,24 @@ const items = [
     id: 1,
     src: bowls,
     src2: text1,
+    color: "#F94F72",
+    size: "30px",
     caption: "MORE THAN 300K RECIPES,",
   },
   {
     id: 2,
     src: chicken,
     src2: text2,
+    color: "#b526f2",
+    size: "28px",
     caption: "24 INTERNATIONAL CUISINES,",
   },
   {
     id: 3,
     src: sliced,
     src2: text3,
+    color: "#f8b652",
+    size: "26px",
     caption: "A VARIETY OF DIETS & A LOT MORE!!!",
   },
 ];
@@ -78,25 +84,41 @@ const SlideShow = () => {
             backgroundPosition: "left center",
           }}
         />
-        <div className='textBox'
+        <div
+          className="textBox"
           style={{
-            display: 'flex',
-            justifyContent: 'center',
-            width: '550px',
+            display: "flex",
+            justifyContent: "center",
+            width: "550px",
             position: "absolute",
             top: "230px",
             left: "0",
             zIndex: "3",
           }}
         >
-          <img
+          {/* <img
             style={{
               width: "320px",
               height: "auto",
             }}
             src={item.src2}
             alt=""
-          />
+          /> */}
+          <div
+            style={{
+              fontWeight: "900",
+              fontFamily: "Bangers",
+              padding: "5px",
+              fontSize: item.size,
+              boxSizing: "border-box",
+              width: "320px",
+              color: "#fff",
+              textAlign: "center",
+              backgroundColor: item.color,
+            }}
+          >
+            {item.caption}
+          </div>
         </div>
       </CarouselItem>
     );
