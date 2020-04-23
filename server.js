@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("./Models/user.model");
 require("dotenv").config();
+const path =require('path');
 
 const secret = process.env.SECRET;
 
@@ -195,7 +196,7 @@ app.get("/check-token", authenticateToken, (req, res) => {
 
 if (process.env.NODE_ENV === "production") {
   // Set static folder
-  app.use(express.static("react/build"));
+  app.use(express.static(path.resolve(__dirname,"react/build")));
 
   // app.get("*", (req, res) => {
   //   res.sendFile(path.resolve(__dirname, "react", "build", "index.html"));
