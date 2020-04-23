@@ -50,7 +50,7 @@ export default function EditAccount(props) {
 
   useEffect(() => {
     console.log(token);
-    fetch(`${process.env.REACT_APP_API_URL}/profile`, {
+    fetch(`${process.env.REACT_APP_API_URL || ""}/profile`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
@@ -112,7 +112,7 @@ export default function EditAccount(props) {
 
     if (TDEE) {
       console.log(TDEE, goalCal, protein, carbs, fat, sugar);
-      fetch(`${process.env.REACT_APP_API_URL}/edit-account`, {
+      fetch(`${process.env.REACT_APP_API_URL || ""}/edit-account`, {
         method: "POST",
         body: JSON.stringify({
           tdee: TDEE,

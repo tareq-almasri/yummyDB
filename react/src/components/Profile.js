@@ -13,7 +13,7 @@ export default function Profile(props) {
   });
   const [token, setToken] = useContext(TokenContext);
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/profile`, {
+    fetch(`${process.env.REACT_APP_API_URL || ""}/profile`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
