@@ -99,7 +99,7 @@ app.post("/create-account", (req, res) => {
 app.post("/login", (req, res) => {
   User.findOne({ email: req.body.email }).then((user) => {
     if (!user) {
-      return res.send({err: "incorrect email or password"});
+      return res.send({ err: "incorrect email or password" });
     }
     let match = bcrypt.compareSync(req.body.password, user.password);
     if (match) {
@@ -109,7 +109,7 @@ app.post("/login", (req, res) => {
       return res.send({ token: token });
       //return res.send(user)
     } else {
-      res.send({err: "incorrect email or password"});
+      res.send({ err: "incorrect email or password" });
     }
   });
 });
@@ -120,11 +120,12 @@ const authenticateToken = (req, res, next) => {
   if (token == null) return res.sendStatus(401);
 
   jwt.verify(token, secret, (err, user) => {
-    if (err) return res.json('expired');
-    req.user = user;
-    
+    if (err) return res.send({ err: "expired" });
+    else {
+      req.user = user;
+      next();
+    }
   });
-  next();
 };
 
 app.get("/profile", authenticateToken, (req, res) => {
@@ -188,13 +189,13 @@ app.get("/get-fav", authenticateToken, (req, res) => {
   User.findOne({ email: req.user.email }).then((user) => res.send(user.fav));
 });
 
-app.get('/check-token',authenticateToken, (req,res)=>{
-   res.json('token is valid');
-})
+app.get("/check-token", authenticateToken, (req, res) => {
+  res.json("token is valid");
+});
 
 if (process.env.NODE_ENV === "production") {
   // Set static folder
-  app.use(express.static(path.resolve(__dirname,"build")));
+  app.use(express.static(path.resolve(__dirname, "build")));
 
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "react", "build", "index.html"));
