@@ -167,7 +167,6 @@ input[type=radio]:not(old):checked+label>span>span {
     .textBox {
         width: 100% !important;
     }
-
 }
 
 @media only screen and (max-width: 670px) {
