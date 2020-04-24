@@ -122,7 +122,7 @@ export default function Info(props) {
   return (
     <div>
       <Header />
-      <form onSubmit={handleSubmit}>
+      <form style={{ paddingBottom: "30px" }} onSubmit={handleSubmit}>
         <div
           style={{
             display: "flex",
@@ -496,8 +496,7 @@ export default function Info(props) {
         </div>
         <div
           style={{
-            
-            height: '30px',
+            height: "30px",
             color: "#F94F72",
             width: "100%",
             textAlign: "center",
