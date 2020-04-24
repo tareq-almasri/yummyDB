@@ -31,7 +31,7 @@ export default function SearchBar() {
             placeholder="Search"
             onChange={(e) => setInput(e.target.value)}
           />
-          <button
+          <button className='searchBtn'
             style={{
               border: "none",
               width: "40px",
